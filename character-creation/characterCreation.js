@@ -1,7 +1,7 @@
 document.getElementById("new district button").addEventListener("click", createNewDisrtict);
 
 function createNewDistrict() {
-    document.getElementsByClassName("disctricts").innerHTML +=
+    document.getElementsByClassName("districts").innerHTML +=
          `<div class="disctrict">
                 <p>District</p>
                 <div class="character">
