@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>character Creation</title>
-</head>
-<body>
-    <!-- rs body budu řešit až na další stránce po vytvoření postav -->
-    
+document.getElementById("new district button").addEventListener("click", createNewDisrtict);
 
-    <!-- <form class="disctrict-form"> -->
-        <div class="disctricts">
-            
-            <div class="disctrict">
+function createNewDistrict() {
+    document.getElementsByClassName("disctricts").innerHTML +=
+         `<div class="disctrict">
                 <p>District</p>
                 <div class="character">
                     <input type="text" placeholder="name">
@@ -32,18 +22,5 @@
                         <option value="Mystery">Mystery</option>
                     </select>
                 </div>
-            </div>
-            
-
-        </div>
-        
-
-        <div>
-            <button onclick="createNewDistrict()">habala</button>
-            <input type="button" value="New disctrict" id="new district button">
-        </div>
-    <!-- </form> -->
-        
-</body>
-<script src="characterCreation.js"></script>
-</html>
+            </div>`;
+}
