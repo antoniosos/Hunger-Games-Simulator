@@ -3,7 +3,8 @@ class Character {
         this.name = name;
         this.survivability = survivability;
         this.items;
-        this.possibleActions; //list 
+        this.possibleActions; //list
+        this.relationships;
     }    
 
 }
