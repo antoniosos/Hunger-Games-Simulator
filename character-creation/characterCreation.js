@@ -1,8 +1,5 @@
-document.getElementById("new district button").addEventListener("click", createNewDisrtict);
-
-function createNewDistrict() {
-    document.getElementsByClassName("districts").innerHTML +=
-         `<div class="disctrict">
+$(document).on('click', '.add_district', function() {
+  $(`<div class="district">
                 <p>District</p>
                 <div class="character">
                     <input type="text" placeholder="name">
@@ -22,5 +19,5 @@ function createNewDistrict() {
                         <option value="Mystery">Mystery</option>
                     </select>
                 </div>
-            </div>`;
-}
+            </div>`).insertAfter('.district:last');
+})
