@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>character Creation</title>
 </head>
 <body>
     <!-- rs body budu řešit až na další stránce po vytvoření postav -->
     
-
-    <!-- <form class="disctrict-form"> -->
+    <form class="disctrict-form">
         <div class="districts">
             
             <div class="district">
@@ -18,9 +17,9 @@
                 <div class="character">
                     <input type="text" placeholder="name">
                     <select name="gender" id="gender">
+                        <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
-                        <option value="Mystery">Mystery</option>
                     </select>
                         
                 </div>
@@ -28,19 +27,21 @@
                 <div class="character">
                     <input type="text" placeholder="name">
                     <select name="gender" id="gender">
+                        <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
-                        <option value="Mystery">Mystery</option>
                     </select>
                 </div>
+                <input type="button" value="Delete district" id="delete_district_first_button">
             </div>
             
 
         </div>
         
 
-        <div>
-            <input type="button" value="New disctrict" id="new district button" class="add_district">
+        <div class="buttons">
+            <input type="button" value="New district" id="new district button" class="add_district">
+            <input type="button" value="Next" id="next_button">
         </div>
     <!-- </form> -->
         
