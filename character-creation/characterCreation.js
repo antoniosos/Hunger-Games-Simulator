@@ -27,6 +27,7 @@ $(document).on('click', '.add_district', function() {
 $(document).on('click', '#delete_district_button', function() {
     console.log("delete button pressed");
     $(this).parent().remove();
+    //přidej číslování distriktů
 })
 
 $(document).on('click', '#delete_district_first_button', function() {
@@ -36,6 +37,6 @@ $(document).on('click', '#delete_district_first_button', function() {
 })
 
 $(document).on('click', '#next_button', function() {
-    $()
+    window.location.href = '...';
 })
 
