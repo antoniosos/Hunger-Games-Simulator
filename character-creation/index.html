@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>character Creation</title>
 </head>
 <body>
     <!-- rs body budu řešit až na další stránce po vytvoření postav -->
     
-
-    <!-- <form class="disctrict-form"> -->
+    <form class="disctrict-form">
         <div class="districts">
             
-            <div class="disctrict">
+            <div class="district">
                 <p>District</p>
                 <div class="character">
                     <input type="text" placeholder="name">
                     <select name="gender" id="gender">
+                        <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
-                        <option value="Mystery">Mystery</option>
                     </select>
                         
                 </div>
@@ -27,22 +27,21 @@
                 <div class="character">
                     <input type="text" placeholder="name">
                     <select name="gender" id="gender">
+                        <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
-                        <option value="Mystery">Mystery</option>
                     </select>
                 </div>
+                <input type="button" value="Delete district" id="delete_district_first_button">
             </div>
             
 
         </div>
         
 
-        <div>
-            <button onclick="createNewDistrict()">new district button onclick</button>
-            <input type="button" value="new district input type button event listener" id="new-district-button">
-            <button onclick="creatueNewDistrictQuery()"> new dis btn query</button>
-            <button onclick="tmp()">tmp</button>
+        <div class="buttons">
+            <input type="button" value="New district" id="new district button" class="add_district">
+            <input type="button" value="Next" id="next_button">
         </div>
     <!-- </form> -->
         

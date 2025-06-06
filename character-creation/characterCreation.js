@@ -1,17 +1,13 @@
-document.getElementById("new-district-button").addEventListener("click", createNewDistrict);
-
-function createNewDistrict() {
-    console.log("create new district func");
-    console.log(document.getElementsByClassName("districts"));
-    document.getElementsByClassName("districts").innerHTML +=
-         `<div class="disctrict">
+$(document).on('click', '.add_district', function() {
+    console.log("new button pressed");
+  $(`<div class="district">
                 <p>District</p>
                 <div class="character">
                     <input type="text" placeholder="name">
                     <select name="gender" id="gender">
+                        <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
-                        <option value="Mystery">Mystery</option>
                     </select>
                         
                 </div>
@@ -19,50 +15,28 @@ function createNewDistrict() {
                 <div class="character">
                     <input type="text" placeholder="name">
                     <select name="gender" id="gender">
+                        <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
-                        <option value="Mystery">Mystery</option>
                     </select>
                 </div>
-            </div>`;
-}
+                <input type="button" value="Delete district" id="delete_district_button">
+            </div>`).insertAfter('.district:last');
+})
 
+$(document).on('click', '#delete_district_button', function() {
+    console.log("delete button pressed");
+    $(this).parent().remove();
+    //přidej číslování distriktů
+})
 
-
-function creatueNewDistrictQuery() {
-    const districtsEl = document.querySelector(".districts");   
-    let newDistrict = "";
-    newDistrict += `<div class="disctrict">
-                <p>District</p>
-                <div class="character">
-                    <input type="text" placeholder="name">
-                    <select name="gender" id="gender">
-                        <option value="M">M</option>
-                        <option value="F">F</option>
-                        <option value="Mystery">Mystery</option>
-                    </select>
-                        
-                </div>
+$(document).on('click', '#delete_district_first_button', function() {
     
-                <div class="character">
-                    <input type="text" placeholder="name">
-                    <select name="gender" id="gender">
-                        <option value="M">M</option>
-                        <option value="F">F</option>
-                        <option value="Mystery">Mystery</option>
-                    </select>
-                </div>
-            </div>`;
-    
-    districtsEl.innerHTML = newDistrict;
-}
+    $(this).parent().children('.character').children('input').val('');
+    $(this).parent().children('.character').children('#gender').val('Mystery').change();
+})
 
+$(document).on('click', '#next_button', function() {
+    window.location.href = '...';
+})
 
-function tmp() {
-    document.getElementById("add_after_me")
-                .insertAdjacentHTML("afterend",
-                    `<h3>
-                        This is the text which has
-                        been inserted by JS
-                    </h3>`);
-}
