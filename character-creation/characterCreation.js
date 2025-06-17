@@ -1,7 +1,7 @@
 $(document).on('click', '.add_district', function() {
     console.log("new button pressed");
   $(`<div class="district">
-                <p>District</p>
+                <h4 class="district-name">District <span class="district-number"></span></h4>
                 <div class="character">
                     <input class="name" type="text" placeholder="name" onchange="saveLC()">
                     <select name="gender" id="gender" onchange="saveLC()">
@@ -22,6 +22,8 @@ $(document).on('click', '.add_district', function() {
                 </div>
                 <input type="button" value="Delete district" id="delete_district_button">
             </div>`).insertAfter('.district:last');
+
+            updateDistrictNumbers($(this).parent().parent());
 })
 
 $(document).on('click', '#delete_district_button', function() {
@@ -37,6 +39,7 @@ $(document).on('click', '#delete_district_button', function() {
         $(this).parent().remove();
     }
         
+    updateDistrictNumbers($(this).parent().parent());
     
     //přidej číslování distriktů
 })
@@ -45,12 +48,11 @@ $(document).on('click', '#delete_district_first_button', function() {
 
     $(this).parent().children('.character').children('input').val('');
     $(this).parent().children('.character').children('#gender').val('Mystery').change();
+    updateDistrictNumbers(this.parent().parent());
 })
 
 $(document).on('click', '#next_button', function() {
 
-
-    
     window.location.href = 'relationship-points-creation';
 })
 
@@ -66,4 +68,28 @@ function saveLC(){
 
 function load(){
 
+}
+
+function updateDistrictNumbers(district){    
+    const districtNumbers = document.getElementsByClassName('district-number');
+    for (let index = 0; index < districtNumbers.length; index++) {
+        districtNumbers.item(index).innerHTML = index + 1;
+    }
+}
+
+$(document).on('click', '.district-name', function() {
+
+    if (!$('#edit-name').length) {
+        var prevName = this;
+    $(this).prepend('<input type="text" id="edit-name" onchange="editName(this)">');
+    }
+    
+})
+
+function editName(editNameElement){
+    console.log('editName called ' + editNameElement.value);
+    console.log($(editNameElement).parent());
+    console.log($(editNameElement));
+    $(editNameElement).parent().innerHTML = editNameElement.value;
+    editNameElement.remove();
 }
