@@ -3,8 +3,8 @@ $(document).on('click', '.add_district', function() {
   $(`<div class="district">
                 <p>District</p>
                 <div class="character">
-                    <input type="text" placeholder="name">
-                    <select name="gender" id="gender">
+                    <input class="name" type="text" placeholder="name" onchange="saveLC()">
+                    <select name="gender" id="gender" onchange="saveLC()">
                         <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
@@ -13,8 +13,8 @@ $(document).on('click', '.add_district', function() {
                 </div>
     
                 <div class="character">
-                    <input type="text" placeholder="name">
-                    <select name="gender" id="gender">
+                    <input class="name" type="text" placeholder="name" onchange="saveLC()">
+                    <select name="gender" id="gender" onchange="saveLC()">
                         <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
@@ -25,18 +25,45 @@ $(document).on('click', '.add_district', function() {
 })
 
 $(document).on('click', '#delete_district_button', function() {
+    
     console.log("delete button pressed");
-    $(this).parent().remove();
+    console.log()
+
+    if($(this).parent().parent().children('.district').length == 1){
+        $(this).parent().children('.character').children('input').val('');
+        $(this).parent().children('.character').children('#gender').val('Mystery').change();
+    }
+    else{
+        $(this).parent().remove();
+    }
+        
+    
     //přidej číslování distriktů
 })
 
 $(document).on('click', '#delete_district_first_button', function() {
-    
+
     $(this).parent().children('.character').children('input').val('');
     $(this).parent().children('.character').children('#gender').val('Mystery').change();
 })
 
 $(document).on('click', '#next_button', function() {
-    window.location.href = '...';
+
+
+    
+    window.location.href = 'relationship-points-creation';
 })
 
+// on change atribut aby se to ukladalo pri kazde zmene
+function saveLC(){
+    var inputName = document.getElementsByClassName('name');
+    localStorage.setItem('name', inputName);
+    console.log(inputName.val)
+    
+    var inputNameByID = document.getElementById('tmp');
+    localStorage.setItem('idname',inputNameByID.value);
+}
+
+function load(){
+
+}

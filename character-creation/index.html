@@ -15,8 +15,8 @@
             <div class="district">
                 <p>District</p>
                 <div class="character">
-                    <input type="text" placeholder="name">
-                    <select name="gender" id="gender">
+                    <input id="tmp" class="name" type="text" placeholder="name" onchange="saveLC()">
+                    <select name="gender" id="gender" onchange="saveLC()">
                         <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
@@ -25,15 +25,16 @@
                 </div>
     
                 <div class="character">
-                    <input type="text" placeholder="name">
-                    <select name="gender" id="gender">
+                    <input class="name" type="text" placeholder="name" onchange="saveLC()">
+                    <select name="gender" id="gender" onchange="saveLC()">
                         <option value="Mystery">Mystery</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
                     </select>
                 </div>
-                <input type="button" value="Delete district" id="delete_district_first_button">
+                <input type="button" value="Delete district" id="delete_district_button">
             </div>
+            
             
 
         </div>
