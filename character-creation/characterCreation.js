@@ -111,4 +111,6 @@ function editName(editNameElement){
     }).remove();
     $(editNameElement).parent().prepend(editNameElement.value);
     editNameElement.remove();
+
+    saveLC();
 }
