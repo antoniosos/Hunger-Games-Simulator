@@ -63,6 +63,15 @@ function saveLC(){
     var districts = document.getElementById('districts');
     localStorage.setItem('districts html', districts.innerHTML);
 
+    const nameCollection = document.getElementsByClassName('name');
+    const charNames = [];
+
+    for (let index = 0; index < nameCollection.length; index++) {
+        charNames.push(nameCollection.item(index).value); 
+    }
+
+    localStorage.setItem('character names', charNames);
+
     // uložení celého html neuloží hodnoty v input fields 
     // možná json je cesta? Mb bude jednoduší
     // a taky varování při odchodu ze stránky že tam máš spoustu neuloženýho
@@ -72,7 +81,14 @@ function load(){
     if (localStorage.getItem('districts html') != null) {
         document.getElementById('districts').innerHTML = localStorage.getItem('districts html');
     }
-    
+
+    const nameCollection = document.getElementsByClassName('name');
+    var charNames = localStorage.getItem('character names').split(',');
+    console.log(charNames);
+
+    for (let i = 0; i < nameCollection.length; i++) {
+        nameCollection.item(i).value = charNames[i];  
+    }
 }
 
 function updateDistrictNumbers(district){    
@@ -83,24 +99,16 @@ function updateDistrictNumbers(district){
 }
 
 $(document).on('click', '.district-name', function() {
-
     if (!$('#edit-name').length) {
         var prevName = this;
     $(this).prepend('<input type="text" id="edit-name" onchange="editName(this)">');
-    }
-    
+    }  
 })
 
 function editName(editNameElement){
-    
-
     $(editNameElement).parent().contents().filter(function() {
         return this.nodeType === 3;
     }).remove();
-
     $(editNameElement).parent().prepend(editNameElement.value);
-
     editNameElement.remove();
-
-    
 }
