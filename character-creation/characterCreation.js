@@ -1,3 +1,5 @@
+load();
+
 $(document).on('click', '.add_district', function() {
     console.log("new button pressed");
   $(`<div class="district">
@@ -40,7 +42,7 @@ $(document).on('click', '#delete_district_button', function() {
     }
         
     updateDistrictNumbers($(this).parent().parent());
-    
+    saveLC();
     //přidej číslování distriktů
 })
 
@@ -58,16 +60,19 @@ $(document).on('click', '#next_button', function() {
 
 // on change atribut aby se to ukladalo pri kazde zmene
 function saveLC(){
-    var inputName = document.getElementsByClassName('name');
-    localStorage.setItem('name', inputName);
-    console.log(inputName.val)
-    
-    var inputNameByID = document.getElementById('tmp');
-    localStorage.setItem('idname',inputNameByID.value);
+    var districts = document.getElementById('districts');
+    localStorage.setItem('districts html', districts.innerHTML);
+
+    // uložení celého html neuloží hodnoty v input fields 
+    // možná json je cesta? Mb bude jednoduší
+    // a taky varování při odchodu ze stránky že tam máš spoustu neuloženýho
 }
 
 function load(){
-
+    if (localStorage.getItem('districts html') != null) {
+        document.getElementById('districts').innerHTML = localStorage.getItem('districts html');
+    }
+    
 }
 
 function updateDistrictNumbers(district){    
