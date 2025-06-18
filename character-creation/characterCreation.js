@@ -73,7 +73,7 @@ function load(){
 function updateDistrictNumbers(district){    
     const districtNumbers = document.getElementsByClassName('district-number');
     for (let index = 0; index < districtNumbers.length; index++) {
-        districtNumbers.item(index).innerHTML = index + 1;
+        districtNumbers.item(index).innerHTML = ` ${ index + 1 }`;
     }
 }
 
@@ -87,9 +87,15 @@ $(document).on('click', '.district-name', function() {
 })
 
 function editName(editNameElement){
-    console.log('editName called ' + editNameElement.value);
-    console.log($(editNameElement).parent());
-    console.log($(editNameElement));
-    $(editNameElement).parent().innerHTML = editNameElement.value;
+    
+
+    $(editNameElement).parent().contents().filter(function() {
+        return this.nodeType === 3;
+    }).remove();
+
+    $(editNameElement).parent().prepend(editNameElement.value);
+
     editNameElement.remove();
+
+    
 }
