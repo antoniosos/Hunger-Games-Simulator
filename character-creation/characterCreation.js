@@ -84,7 +84,6 @@ function load(){
 
     const nameCollection = document.getElementsByClassName('name');
     var charNames = localStorage.getItem('character names').split(',');
-    console.log(charNames);
 
     for (let i = 0; i < nameCollection.length; i++) {
         nameCollection.item(i).value = charNames[i];  
