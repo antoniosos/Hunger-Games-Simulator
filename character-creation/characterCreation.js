@@ -61,20 +61,22 @@ $(document).on('click', '#next_button', function() {
 // on change atribut aby se to ukladalo pri kazde zmene
 function saveLC(){
     var districts = document.getElementById('districts');
+    const nameCollection = document.getElementsByClassName('name');
+    const genderCollection = document.getElementsByClassName('gender');
+
     localStorage.setItem('districts html', districts.innerHTML);
 
-    const nameCollection = document.getElementsByClassName('name');
     const charNames = [];
-
     for (let index = 0; index < nameCollection.length; index++) {
         charNames.push(nameCollection.item(index).value); 
     }
-
-    localStorage.setItem('character names', charNames);
-
-    // uložení celého html neuloží hodnoty v input fields 
-    // možná json je cesta? Mb bude jednoduší
-    // a taky varování při odchodu ze stránky že tam máš spoustu neuloženýho
+    localStorage.setItem('names', charNames);
+    
+    const charGenders = [];
+    for (let i = 0; i < charGenders.length; i++) {
+        charGenders.push(genderCollection.item(i).value);
+    }
+    localStorage.setItem('genders', charGenders);
 }
 
 function load(){
@@ -83,10 +85,22 @@ function load(){
     }
 
     const nameCollection = document.getElementsByClassName('name');
-    var charNames = localStorage.getItem('character names').split(',');
+    var charNames;
+    if (localStorage.getItem('names') != null) {
+        charNames = localStorage.getItem('names').split(',');
+        for (let i = 0; i < nameCollection.length; i++) {
+            nameCollection.item(i).value = charNames[i];  
+    }
+    }
 
-    for (let i = 0; i < nameCollection.length; i++) {
-        nameCollection.item(i).value = charNames[i];  
+
+    const genderCollection = document.getElementsByClassName('gender');
+    var charGenders;
+    if(localStorage.getItem('character genders') != null) {
+        charGenders = localStorage.getItem('character genders').split(',');
+        for (let i = 0; i < genderCollection.length; i++) {
+            genderCollection.item(i).value = charGenders[i];
+        }
     }
 }
 
